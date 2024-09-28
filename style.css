@@ -1,0 +1,182 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(IMAGENES/1.gif);
+    color: black;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color:rgb(5, 45, 61);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(2, 46, 4);
+    text-align: center;
+}
+
+header .logo img {
+    max-height:180px;
+}
+
+
+header h2 {
+    font: size 15px;;
+}
+
+nav a {
+    margin-left: 20px;
+    color: rgb(233, 227, 227);
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('IMAGENES/veterinaria-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    color: rgb(76, 248, 8);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-1 {
+    background-color: #10a824;
+    color: rgb(244, 244, 248);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-1:hover {
+    background-color: #0056b3;
+}
+
+/* Welcome Section */
+.welcome {
+    padding: 50px;
+    text-align: center;
+}
+
+.welcome h2 {
+    font-size: 30px;
+    color: rgb(0, 255, 64);
+}
+
+.welcome p {
+    font-size: 18px;
+    color: white;
+}
+
+.welcome img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Services Section */
+.services {
+    background-color: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+}
+
+.services h2 {
+    color: #4CAF50;
+    font-size: 30px;
+}
+
+/* Prices Section */
+.prices {
+    background-color: rgb(3, 65, 65);
+    color: rgb(253, 250, 250);
+    padding: 50px;
+    text-align: center;
+}
+
+.prices h2 {
+    color: #07e94b;
+    font-size: 28px;
+}
+
+.prices table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.prices th, .prices td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+    background-image: url(IMAGENES/2.jpg);
+    color: rgb(233, 230, 240);
+    padding: 50px;
+}
+
+footer h2 {
+    font-size: 24px;
+    color: #890eee;
+}
+
+footer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer form .campo {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+footer .btn-1 {
+    margin-top: 20px;
+}
+
+.footer-txt {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+
+}
+
+.responsive-image {
+    display: block;
+    margin: 0 auto;
+}
+    
+
+
+    
