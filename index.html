@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Centro Veterinario J&Y</title>
 </head>
 
 <body>
@@ -16,9 +17,10 @@
 
         <nav>
             <a href="#" class="nav-link">INICIO</a>
-            <a href="#" class="nav-link">SERVICIOS</a>
-            <a href="#" class="nav-link">PRODUCTOS</a>
             <a href="#" class="nav-link">CONTACTO</a>
+            <a href="#" class="nav-link"> SERVICIOS</a>
+            <a href="#" class="nav-link"> CITAS</a>
+            
         </nav>
     </header>
 
@@ -59,7 +61,7 @@
         <p>
             Ser el centro veterinario líder en la región, reconocida por nuestra excelencia en el cuidado de animales y la calidad de nuestros productos para ganadería. Aspiramos a establecer un estándar de referencia en atención veterinaria y ventas de productos especializados.
         </p>
-        <a href="#" class="btn-1">Información</a>
+        <img src="IMAGENES/9.jfif" alt="#" class="responsive-image img-scale-animation">
     </main>
 
     <section class="prices">
@@ -84,23 +86,78 @@
         <a href="#" class="btn-1">Información</a>
     </section>
 
-    <footer>
-        <h2>AGENDA TU CITA</h2>
-        <form>
-            <input class="campo" type="text" placeholder="Nombre">
-            <input class="campo" type="number" placeholder="Teléfono">
-            <input class="campo" type="text" placeholder="Dirección">
-            <input class="campo" type="email" placeholder="Correo">
-            <textarea class="campo" cols="30" rows="10" placeholder="Texto"></textarea>
-            <input type="submit" value="Enviar" class="btn-1">
-        </form>
-
         <div class="footer-txt">
             <p>
                 En nuestro centro veterinario, tu mascota es nuestra familia. Cuidamos con amor y profesionalismo para que cada visita sea un paso hacia una vida más saludable y feliz para tu mejor amigo.
             </p>
         </div>
     </footer>
+
+</body>
+
+</html>
+
+<footer>
+    <h2>AGENDA TU CITA</h2>
+    <form id="appointmentForm">
+        <input id="name" class="campo" type="text" placeholder="Nombre" required>
+        <input id="phone" class="campo" type="number" placeholder="Teléfono" required>
+        <input id="address" class="campo" type="text" placeholder="Dirección" required>
+        <input id="email" class="campo" type="email" placeholder="Correo" required>
+        <textarea id="message" class="campo" cols="30" rows="10" placeholder="Texto" required></textarea>
+        <button type="submit" class="btn-1">Enviar</button>
+    </form>
+
+    <div id="appointmentDetails" class="footer-txt">
+        <!-- Aquí se mostrarán los datos ingresados -->
+    </div>
+
+    <button id="deleteButton" class="btn-1" style="display:none;">Eliminar Datos</button>
+    <button id="clearButton" class="btn-1" style="display:none;">Borrar Campos</button>
+</footer>
+
+<script>
+    document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitar recargar la página
+
+        // Capturar los valores de los campos
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Mostrar los datos en el div
+        const appointmentDetails = document.getElementById('appointmentDetails');
+        appointmentDetails.innerHTML = `
+            <h3>Datos de la Cita</h3>
+            <p><strong>Nombre:</strong> ${name}</p>
+            <p><strong>Teléfono:</strong> ${phone}</p>
+            <p><strong>Dirección:</strong> ${address}</p>
+            <p><strong>Correo:</strong> ${email}</p>
+            <p><strong>Mensaje:</strong> ${message}</p>
+        `;
+
+        // Mostrar los botones de borrar y eliminar
+        document.getElementById('deleteButton').style.display = 'inline-block';
+        document.getElementById('clearButton').style.display = 'inline-block';
+
+        // Limpiar los campos del formulario
+        document.getElementById('appointmentForm').reset();
+    });
+
+    // Botón para borrar los datos mostrados
+    document.getElementById('deleteButton').addEventListener('click', function () {
+        document.getElementById('appointmentDetails').innerHTML = '';
+        document.getElementById('deleteButton').style.display = 'none';
+        document.getElementById('clearButton').style.display = 'none';
+    });
+
+    // Botón para limpiar los campos del formulario
+    document.getElementById('clearButton').addEventListener('click', function () {
+        document.getElementById('appointmentForm').reset();
+    });
+</script>
 
 </body>
 

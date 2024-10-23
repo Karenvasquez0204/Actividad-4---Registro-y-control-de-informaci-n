@@ -1,6 +1,6 @@
 /* General */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:Ravie;
     margin: 0;
     padding: 0;
     background-image: url(IMAGENES/1.gif);
@@ -39,7 +39,21 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+.header-dir {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+}
+.dir h3 {
+    font-size: 18px;
+}
 
+.dir p {
+ font-size: 22px;
+ color: #ddd;
+ text-transform: uppercase;
+}
 /* Hero Section */
 .hero {
     background-image: url('IMAGENES/veterinaria-background.jpg');
@@ -97,20 +111,20 @@ nav a:hover {
 
 /* Services Section */
 .services {
-    background-color: #f4f4f4;
+    background-color: #7d7b7e;
     padding: 50px;
     text-align: center;
 }
 
 .services h2 {
-    color: #4CAF50;
+    color: #2008f8;
     font-size: 30px;
 }
 
 /* Prices Section */
 .prices {
-    background-color: rgb(3, 65, 65);
-    color: rgb(253, 250, 250);
+    background-image:url(IMAGENES/sparkles-twinkles.gif);
+    color: rgb(245, 243, 244);
     padding: 50px;
     text-align: center;
 }
@@ -132,14 +146,14 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background-image: url(IMAGENES/2.jpg);
-    color: rgb(233, 230, 240);
+    background-image: url(IMAGENES/iii.gif);
+    color: rgb(26, 240, 11);
     padding: 50px;
 }
 
 footer h2 {
     font-size: 24px;
-    color: #890eee;
+    color: #e40f79;
 }
 
 footer form {
@@ -176,7 +190,40 @@ footer .btn-1 {
     display: block;
     margin: 0 auto;
 }
-    
+
+.footer-bg {
+    padding: 30px;
+}
+
+textarea {
+    width: 250px important;
 
 
-    
+}
+
+@keyframes scaleImage {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1); 
+    }
+}
+
+.img-scale-animation {
+    animation: scaleImage 2s ease-in-out infinite;
+}
+
+.nav-link:hover {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
