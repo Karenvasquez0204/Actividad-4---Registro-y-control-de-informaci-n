@@ -18,9 +18,8 @@
         <nav>
             <a href="#" class="nav-link">INICIO</a>
             <a href="#" class="nav-link">CONTACTO</a>
-            <a href="#" class="nav-link"> SERVICIOS</a>
-            <a href="#" class="nav-link"> CITAS</a>
-            
+            <a href="#" class="nav-link">SERVICIOS</a>
+            <a href="#" class="nav-link">CITAS</a>
         </nav>
     </header>
 
@@ -31,7 +30,7 @@
             <p>
                 En el centro veterinario J&Y, somos un equipo de profesionales apasionados por el bienestar animal, con una visión integral que combina la atención veterinaria experta con una oferta completa de productos especializados.
             </p>
-            <img src="IMAGENES/5.jpg" alt="" class="responsive-image">
+            <img src="IMAGENES/5.jpg" alt="Veterinaria J&Y" class="responsive-image">
             <a href="#" class="btn-1">Información</a>
         </div>
 
@@ -61,7 +60,7 @@
         <p>
             Ser el centro veterinario líder en la región, reconocida por nuestra excelencia en el cuidado de animales y la calidad de nuestros productos para ganadería. Aspiramos a establecer un estándar de referencia en atención veterinaria y ventas de productos especializados.
         </p>
-        <img src="IMAGENES/9.jfif" alt="#" class="responsive-image img-scale-animation">
+        <img src="IMAGENES/9.jpg" alt="Servicios veterinarios" class="responsive-image img-scale-animation">
     </main>
 
     <section class="prices">
@@ -86,78 +85,112 @@
         <a href="#" class="btn-1">Información</a>
     </section>
 
+    <footer>
         <div class="footer-txt">
             <p>
                 En nuestro centro veterinario, tu mascota es nuestra familia. Cuidamos con amor y profesionalismo para que cada visita sea un paso hacia una vida más saludable y feliz para tu mejor amigo.
             </p>
         </div>
+
+        <h2>AGENDA TU CITA</h2>
+        <form id="appointmentForm">
+            <input id="name" class="campo" type="text" placeholder="Nombre" required>
+            <input id="phone" class="campo" type="number" placeholder="Teléfono" required>
+            <input id="address" class="campo" type="text" placeholder="Dirección" required>
+            <input id="email" class="campo" type="email" placeholder="Correo" required>
+            <textarea id="message" class="campo" cols="30" rows="10" placeholder="Texto" required></textarea>
+            <button type="submit" class="btn-1">Enviar</button>
+        </form>
+
+        <div id="appointmentContainer" class="footer-txt">
+            <!-- Aquí se mostrarán todos los datos de las citas agregadas -->
+        </div>
     </footer>
 
-</body>
+    <script>
+        // Función para capturar el evento de envío del formulario
+        document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evitar recargar la página
 
-</html>
+            // Capturar los valores de los campos
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-<footer>
-    <h2>AGENDA TU CITA</h2>
-    <form id="appointmentForm">
-        <input id="name" class="campo" type="text" placeholder="Nombre" required>
-        <input id="phone" class="campo" type="number" placeholder="Teléfono" required>
-        <input id="address" class="campo" type="text" placeholder="Dirección" required>
-        <input id="email" class="campo" type="email" placeholder="Correo" required>
-        <textarea id="message" class="campo" cols="30" rows="10" placeholder="Texto" required></textarea>
-        <button type="submit" class="btn-1">Enviar</button>
-    </form>
+            // Crear un nuevo div para esta cita específica
+            const newAppointment = document.createElement('div');
+            newAppointment.classList.add('appointment');
+            
+            // Asignar un identificador único para cada cita
+            const appointmentId = 'appointment-' + Date.now();
+            newAppointment.setAttribute('id', appointmentId);
 
-    <div id="appointmentDetails" class="footer-txt">
-        <!-- Aquí se mostrarán los datos ingresados -->
-    </div>
+            // Añadir HTML de la cita con botones de modificar y eliminar
+            newAppointment.innerHTML = `
+                <h3>Datos de la Cita</h3>
+                <p><strong>Nombre:</strong> <span class="name">${name}</span></p>
+                <p><strong>Teléfono:</strong> <span class="phone">${phone}</span></p>
+                <p><strong>Dirección:</strong> <span class="address">${address}</span></p>
+                <p><strong>Correo:</strong> <span class="email">${email}</span></p>
+                <p><strong>Mensaje:</strong> <span class="message">${message}</span></p>
+                <button onclick="editAppointment('${appointmentId}')" class="btn-1">Modificar</button>
+                <button onclick="deleteAppointment('${appointmentId}')" class="btn-1">Eliminar</button>
+                <hr>
+            `;
 
-    <button id="deleteButton" class="btn-1" style="display:none;">Eliminar Datos</button>
-    <button id="clearButton" class="btn-1" style="display:none;">Borrar Campos</button>
-</footer>
+            // Agregar la nueva cita al contenedor de citas
+            document.getElementById('appointmentContainer').appendChild(newAppointment);
 
-<script>
-    document.getElementById('appointmentForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Evitar recargar la página
+            // Limpiar los campos del formulario
+            document.getElementById('appointmentForm').reset();
+        });
 
-        // Capturar los valores de los campos
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const address = document.getElementById('address').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        // Función para eliminar una cita
+        function deleteAppointment(appointmentId) {
+            const appointment = document.getElementById(appointmentId);
+            appointment.remove();
+        }
 
-        // Mostrar los datos en el div
-        const appointmentDetails = document.getElementById('appointmentDetails');
-        appointmentDetails.innerHTML = `
-            <h3>Datos de la Cita</h3>
-            <p><strong>Nombre:</strong> ${name}</p>
-            <p><strong>Teléfono:</strong> ${phone}</p>
-            <p><strong>Dirección:</strong> ${address}</p>
-            <p><strong>Correo:</strong> ${email}</p>
-            <p><strong>Mensaje:</strong> ${message}</p>
-        `;
+        // Función para editar una cita
+        function editAppointment(appointmentId) {
+            const appointment = document.getElementById(appointmentId);
 
-        // Mostrar los botones de borrar y eliminar
-        document.getElementById('deleteButton').style.display = 'inline-block';
-        document.getElementById('clearButton').style.display = 'inline-block';
+            // Obtener los valores actuales de la cita
+            const currentName = appointment.querySelector('.name').innerText;
+            const currentPhone = appointment.querySelector('.phone').innerText;
+            const currentAddress = appointment.querySelector('.address').innerText;
+            const currentEmail = appointment.querySelector('.email').innerText;
+            const currentMessage = appointment.querySelector('.message').innerText;
 
-        // Limpiar los campos del formulario
-        document.getElementById('appointmentForm').reset();
-    });
+            // Rellenar el formulario con los valores actuales para modificar
+            document.getElementById('name').value = currentName;
+            document.getElementById('phone').value = currentPhone;
+            document.getElementById('address').value = currentAddress;
+            document.getElementById('email').value = currentEmail;
+            document.getElementById('message').value = currentMessage;
 
-    // Botón para borrar los datos mostrados
-    document.getElementById('deleteButton').addEventListener('click', function () {
-        document.getElementById('appointmentDetails').innerHTML = '';
-        document.getElementById('deleteButton').style.display = 'none';
-        document.getElementById('clearButton').style.display = 'none';
-    });
+            // Remover la cita que se está editando para agregarla de nuevo después de la edición
+            deleteAppointment(appointmentId);
 
-    // Botón para limpiar los campos del formulario
-    document.getElementById('clearButton').addEventListener('click', function () {
-        document.getElementById('appointmentForm').reset();
-    });
-</script>
+            // Modificar el texto del botón de enviar para indicar edición
+            const submitButton = document.querySelector("#appointmentForm button[type='submit']");
+            submitButton.innerText = 'Guardar Cambios';
+            
+            // Cambiar evento del botón enviar para actualizar en lugar de crear
+            submitButton.onclick = function (event) {
+                event.preventDefault();
+
+                // Crear nueva cita con los datos modificados
+                document.getElementById('appointmentForm').dispatchEvent(new Event('submit'));
+
+                // Volver el texto del botón a su estado original
+                submitButton.innerText = 'Enviar';
+                submitButton.onclick = null; // Restablecer el comportamiento predeterminado
+            };
+        }
+    </script>
 
 </body>
 
